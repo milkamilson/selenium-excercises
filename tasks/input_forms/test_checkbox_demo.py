@@ -40,7 +40,13 @@ class TestCheckboxDemo(TestCase):
         self.check_all.click()
         self.assertEqual('Uncheck All', self.check_all.get_attribute('value'))
 
-
+    def test_multiple_checkbox_uncheck_change(self):
+        self.option_1.click()
+        self.option_2.click()
+        self.option_3.click()
+        self.option_4.click()
+        self.option_1.click()
+        self.assertEqual('Check All', self.check_all.get_attribute('value'))
 
     def tearDown(self) -> None:
         self.driver.quit()
