@@ -5,6 +5,7 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 from time import sleep as slep
 
+
 class TestCheckboxDemo(TestCase):
     def setUp(self):
         self.url = 'https://demo.seleniumeasy.com/basic-checkbox-demo.html'
