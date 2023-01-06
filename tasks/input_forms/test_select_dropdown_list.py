@@ -37,12 +37,12 @@ class MultiselectDropdownList(TestCase):
         self.url = 'https://demo.seleniumeasy.com/basic-select-dropdown-demo.html'
         self.driver = webdriver.Chrome()
         self.driver.get(self.url)
-        slep(3)
-        try:
-            close_popup_button = self.driver.find_element(By.XPATH, '/html/body/div[3]/div/div[1]/div/div[2]/a')
-            close_popup_button.click()
-        except NoSuchElementException:
-            pass
+        # slep(3)
+        # try:
+        #     close_popup_button = self.driver.find_element(By.XPATH, '/html/body/div[3]/div/div[1]/div/div[2]/a')
+        #     close_popup_button.click()
+        # except NoSuchElementException:
+        #     pass
 
     def test_multiple_select(self):
         multiselect_list = Select(self.driver.find_element(By.ID, 'multi-select'))
@@ -50,9 +50,9 @@ class MultiselectDropdownList(TestCase):
         first_selected_button = self.driver.find_element(By.ID, 'printMe')
         all_selected_button = self.driver.find_element(By.ID, 'printAll')
         multiselect_list.deselect_all()
-        california = self.driver.find_element(By.XPATH, '/html/body/div[2]/div/div[2]/div[2]/div[2]/select/option[1]')
-        texas = self.driver.find_element(By.XPATH, '/html/body/div[2]/div/div[2]/div[2]/div[2]/select/option[6]')
-        ohio = self.driver.find_element(By.XPATH, '/html/body/div[2]/div/div[2]/div[2]/div[2]/select/option[5]')
+        california = self.driver.find_element(By.XPATH, '//select[@id="multi-select"]/option[@value="California"]')
+        texas = self.driver.find_element(By.XPATH, '//select[@id="multi-select"]/option[@value="Texas"]')
+        ohio = self.driver.find_element(By.XPATH, '//select[@id="multi-select"]/option[@value="Ohio"]')
         ActionChains(self.driver).key_down(Keys.CONTROL).click(california).key_up(Keys.CONTROL).perform()
         ActionChains(self.driver).key_down(Keys.CONTROL).click(texas).key_up(Keys.CONTROL).perform()
         ActionChains(self.driver).key_down(Keys.CONTROL).click(ohio).key_up(Keys.CONTROL).perform()
